@@ -1,41 +1,57 @@
 package everland;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputClass {
 	public static void main(String[] args) throws IOException {
 		TypeClass t; //선언만, 생성은 반복문 내에서
-		ProcessingClass pc;
 		Scanner scan = new Scanner(System.in);
 		SelectorClass s;
+		CalClass cal = new CalClass();
+		FileWriteClass f = new FileWriteClass();
+		ArrayList <String> subinfoList = new ArrayList<String>();
+		String subinfo = "";
+		int ctn1;
 		
+		f.headerWrite();
+
 		do {
-			pc = new ProcessingClass();
+			System.out.println("발권을 시작합니다");
+			System.out.println("1. 시작\n2. 종료");
+			ctn1 = scan.nextInt();
+			
 			t = new TypeClass();
 			s = new SelectorClass();
-			
-			System.out.println("티켓 발권을 시작합니다");
-			System.out.println("권종을 선택하세요: ");
-			System.out.println("1. 주간권\n2.야간권\n3. 종료");
-			t.time = scan.nextInt();
+
 			s.timeSelect(t);
+			s.ageSelect(t);
+			s.amntInput(t);
+			s.discntSelect(t);
 			
+			subinfo = t.timestr + " " + t.agestr + " X " + t.amnt + " " + t.discntstr;
+			subinfoList.add(subinfo);
+			cal.CalSubtotal(t);
 			
-			System.out.println("주민등록번호를 입력하세요: ");
-			t.minbun = scan.next();
+			t.total += t.subtotal;
 			
-			System.out.println("발권하실 티켓 매수를 입력하세요: ");
-			t.amnt = scan.nextInt();
-			
-			System.out.println("우대사항을 선택하세요(연령에 따른 우대는 자동 처리됩니다): ");
-			System.out.println("1. 없음"); 
-			System.out.println("2. 장애인");
-			System.out.println("3. 국가유공자");
-			System.out.println("4. 다자녀");
-			System.out.println("5. 임산부");
-			t.discnt = scan.nextInt();
-			
-		} while (t.time != Options.exit); //반복 종료
+			System.out.println("추가로 발권하시겠습니까?: ");
+			System.out.println("1. 추가 \n2. 종료");
+			int ctn2 = scan.nextInt();
+			if(ctn2 == 1) {
+				continue;
+			} else {
+				System.out.println("티켓 발권을 종료합니다.");
+				System.out.println("====EVERLAND RESORT====");
+				
+				for(int i = 0; i < subinfoList.size(); i++) {
+					System.out.println(subinfoList.get(i));
+				}
+				System.out.printf("결제하실 금액: %d원\n", t.total);
+			}
+			f.dataWrite(t);
+		} while (ctn1 != 2); //반복 종료
+		f.fileClose();
 	}
 }

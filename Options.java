@@ -37,7 +37,7 @@ public class Options {
 	 */
 	
 	//file name
-	final static String filename = "c:\\User\\J\\Desktop\\source\\everdemo1.csv";
+	final static String filename = "c:\\Users\\J\\Desktop\\source\\everdemo1.csv";
 	
 	//format
 	final static String minbunForm = "\\d{2}([0]\\d|[1][0-2])([0][1-9]|[1-2]\\d|[3][0-1])[-]*[1-4]\\d{6}";

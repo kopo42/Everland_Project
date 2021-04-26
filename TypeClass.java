@@ -1,5 +1,7 @@
 package everland;
 
+import java.util.ArrayList;
+
 public class TypeClass {
 	//input
 	int time;

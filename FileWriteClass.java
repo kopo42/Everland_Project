@@ -36,8 +36,9 @@ public class FileWriteClass {
 	public void headerWrite() throws IOException {
 		String head = "";
 		if(isFileExist == false) {
-			head = "날짜," + "환전대상," + "금액," + "환전결과," + "거스름돈" + "\n";
+			head = "날짜," + "권종," + "연령구분," + "발매수," + "결제금액," + "우대사항"+"\n";
 			fw.write(head);
+			System.out.println(head);
 		} else if(isFileExist == true){
 			head = "";
 		}
@@ -45,11 +46,12 @@ public class FileWriteClass {
 	
 	public void dataWrite(TypeClass t) throws IOException {
 		Calendar c = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		
-		String result = sdf.format(c.getTime()) + "," + t.exchange_type + "," + t.inputWon + "," 
-								+ t.result + "," + t.returnkrw + "\n";
+		String result = sdf.format(c.getTime()) + "," + t.timestr + "," + t.agestr + "," 
+								+ t.amnt + "," + t.total + "," + t.discntstr + "\n";
 		fw.write(result);
+		System.out.println(result);
 	}	
 }
 
