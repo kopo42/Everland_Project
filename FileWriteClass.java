@@ -25,14 +25,6 @@ public class FileWriteClass {
 		}
 	}
 	
-	public void fileClose() {
-		try {
-			fw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	public void headerWrite() throws IOException {
 		String head = "";
 		if(isFileExist == false) {
@@ -51,20 +43,15 @@ public class FileWriteClass {
 		String result = sdf.format(c.getTime()) + "," + t.timestr + "," + t.agestr + "," 
 								+ t.amnt + "," + t.total + "," + t.discntstr + "\n";
 		fw.write(result);
-		System.out.println(result);
+		System.out.println();
 	}	
+	
+	public void fileClose() {
+		try {
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

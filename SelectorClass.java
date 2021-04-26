@@ -15,7 +15,7 @@ public class SelectorClass {
 	}
 	
 	public void ageSelect(TypeClass t) {
-		System.out.println("주민등록번호를 입력하세요: ");
+		System.out.println("생년월일 8자리를 입력하세요: ");
 		t.minbun = scan.next();
 		pc.getAge(t);
 	}
@@ -25,7 +25,7 @@ public class SelectorClass {
 		t.amnt = scan.nextInt();
 	}
 	
-	public void discntSelect(TypeClass t) {
+	public int discntSelect(TypeClass t) {
 		System.out.println("우대사항을 선택하세요(연령에 따른 우대는 자동 처리됩니다): ");
 		System.out.println("1. 없음"); 
 		System.out.println("2. 장애인");
@@ -33,7 +33,8 @@ public class SelectorClass {
 		System.out.println("4. 다자녀");
 		System.out.println("5. 임산부");
 		t.discnt = scan.nextInt();
-		pc.getDiscnt(t);
+		t.subtotal = pc.getDiscnt(t);
+		return t.subtotal;
 	}
 }
 
