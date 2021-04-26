@@ -9,7 +9,7 @@ public class SelectorClass {
 	public void timeSelect(TypeClass t) {
 		System.out.println("티켓 발권을 시작합니다");
 		System.out.println("권종을 선택하세요: ");
-		System.out.println("1. 주간권\n2. 야간권");
+		System.out.println("1. 주간권  2. 야간권");
 		t.time = scan.nextInt();
 		pc.getTime(t);
 	}
@@ -27,11 +27,7 @@ public class SelectorClass {
 	
 	public int discntSelect(TypeClass t) {
 		System.out.println("우대사항을 선택하세요(연령에 따른 우대는 자동 처리됩니다): ");
-		System.out.println("1. 없음"); 
-		System.out.println("2. 장애인");
-		System.out.println("3. 국가유공자");
-		System.out.println("4. 다자녀");
-		System.out.println("5. 임산부");
+		System.out.println("1. 없음  2. 장애인  3. 국가유공자  4. 다자녀  5. 임산부"); 
 		t.discnt = scan.nextInt();
 		t.subtotal = pc.getDiscnt(t);
 		return t.subtotal;

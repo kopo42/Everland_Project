@@ -12,14 +12,12 @@ public class InputClass {
 		FileWriteClass f = new FileWriteClass();
 		ArrayList <String> subinfoList = new ArrayList<String>();
 		ArrayList <Integer> totalList = new ArrayList<Integer>();
-		String subinfo = "";
 		int ctn1;
-		//파일 헤더 쓰기
-		f.headerWrite();
+		f.headerWrite(); //파일 헤더 쓰기
 
 		while(true){
 			System.out.println("발권을 시작합니다");
-			System.out.println("1. 시작\n2. 종료");
+			System.out.println("1. 시작  2. 종료");
 			ctn1 = scan.nextInt();
 			if(ctn1 == 1) {
 				t = new TypeClass();
@@ -30,7 +28,7 @@ public class InputClass {
 				s.amntInput(t);
 				t.subtotal = s.discntSelect(t);
 				
-				subinfo = t.timestr + " " + t.agestr + " X " + t.amnt + " " + t.subtotal+ "원" + " " + t.discntstr;
+				String subinfo = t.timestr + " " + t.agestr + " X " + t.amnt + " " + t.subtotal+ "원" + " " + t.discntstr;
 				subinfoList.add(subinfo);
 				
 				totalList.add(t.subtotal);
@@ -38,11 +36,10 @@ public class InputClass {
 					t.total += totalList.get(i);
 				}
 				
-				//파일 내용 쓰기
-				f.dataWrite(t);
+				f.dataWrite(t); //파일 내용 쓰기
 				
 				System.out.println("추가로 발권하시겠습니까?: ");
-				System.out.println("1. 추가 \n2. 종료");
+				System.out.println("1. 추가  2. 종료");
 				int ctn2 = scan.nextInt();
 				
 				if(ctn2 == 1) {
@@ -58,8 +55,7 @@ public class InputClass {
 					System.out.println("=======================");
 				}
 			}else if(ctn1 == 2) {
-				//파일 쓰기 닫기
-				f.fileClose();
+				f.fileClose();//파일 쓰기 닫기
 				break;
 			}
 		} 

@@ -30,7 +30,6 @@ public class FileWriteClass {
 		if(isFileExist == false) {
 			head = "날짜," + "권종," + "연령구분," + "발매수," + "결제금액," + "우대사항"+"\n";
 			fw.write(head);
-			System.out.println(head);
 		} else if(isFileExist == true){
 			head = "";
 		}
@@ -41,7 +40,7 @@ public class FileWriteClass {
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
 		
 		String result = sdf.format(c.getTime()) + "," + t.timestr + "," + t.agestr + "," 
-								+ t.amnt + "," + t.total + "," + t.discntstr + "\n";
+								+ t.amnt + "," + t.subtotal + "," + t.discntstr + "\n";
 		fw.write(result);
 		System.out.println();
 	}	

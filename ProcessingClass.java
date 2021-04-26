@@ -27,7 +27,7 @@ public class ProcessingClass {
 		//price = {성인, 청소년, 어린이, 경로, 유아}
 		if(t.age >= Options.adultMin && t.age <= Options.adultMax) {
 			t.price_age = t.price_time[0];
-			t.agestr = "어른";
+			t.agestr = "성인";
 		} else if (t.age >= Options.youthMin && t.age <= Options.youthMax) {
 			t.price_age = t.price_time[1];
 			t.agestr = "청소년";
