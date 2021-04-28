@@ -14,7 +14,7 @@ public class InputClass {
 		ArrayList <Integer> totalList = new ArrayList<Integer>();
 		int ctn1;
 		f.headerWrite(); //파일 헤더 쓰기
-
+		
 		while(true){
 			System.out.println("발권을 시작합니다");
 			System.out.println("1. 시작  2. 종료");
