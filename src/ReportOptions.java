@@ -6,44 +6,43 @@ public class ReportOptions {
 	String ageType;
 	String discntType;
 	
-	int dayTotal;
-	int daycnt;
+	boolean isFileExist;
 	
+	
+	int dayTotal;
 	int nightTotal;
 	
-	int adultTotal;
+	int daysum;
+	int nightsum;
+	
+	int agecnt;
+	
+	int discntCnt;
+
 	int adultcnt;
-	
-	int youthTotal;
+
 	int youthcnt;
-	
-	int childTotal;
+
 	int childcnt;
-	
-	int seniorTotal;
+
 	int seniorcnt;
-	
-	int enfantTotal;
+
 	int enfantcnt;
 	
-	int allTotal;
-	int allcnt;
-	
-	int dateTotal; //?
+	int noncnt;
+	int disabledcnt;
+	int veterancnt;
+	int multichildcnt;
+	int pregcnt;
 	
 	int nonTotal;
-	int noncnt;
-	
-	int disableTotal;
-	int disablecnt;
-	
-	int veterancnt;
+	int disabledTotal;
 	int veteranTotal;
-	
-	int multichildcnt;
 	int multichildTotal;
-	
-	int pregcnt;
 	int pregTotal;
+
+	//int allcnt;
+	int discntSubtotal;
+	int discntTotal;
 
 }
