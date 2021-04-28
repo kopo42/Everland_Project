@@ -1,4 +1,4 @@
-package everland;
+
 
 public class TypeClass {
 	//input

@@ -1,4 +1,4 @@
-package everland;
+
 
 public class CalClass {
 	TypeClass t = new TypeClass();

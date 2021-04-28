@@ -1,4 +1,4 @@
-package everland;
+
 
 import java.util.Scanner;
 
