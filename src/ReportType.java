@@ -8,7 +8,6 @@ public class ReportType {
 	//ReportOptions ro = new ReportOptions();
 	
 	public String TypeDate(ArrayList dateArrList1, String[] field, ReportOptions ro, ReportFileWrite rf) throws IOException {
-		System.out.println(dateArrList1);
 		HashSet<String> dateList = new HashSet<String>(dateArrList1);
 		String[][]dateArr = new String[dateList.size()][2];
 		ArrayList <String> dateArrList2 = new ArrayList <String>(dateList);
@@ -18,8 +17,6 @@ public class ReportType {
 		
 		String datestr = "";
 		int datetotal = 0;
-		System.out.println(dateArrList1);
-		System.out.println(dateArrList2);
 		try {
 			for (int i = 0; i < dateArrList2.size()-1; i ++) {
 				for(int j = 1; j < dateArrList1.size(); j ++) {
