@@ -7,8 +7,8 @@ public class ProcessingClass {
 	CalClass cal = new CalClass();
 	
 	public void	getTime (TypeClass t) {
-		if (t.time == Options.day) {
-			t.price_time = Options.price_day;
+		if (t.time == Options.day) { //미리 저장한 변수 값에 따라
+			t.price_time = Options.price_day; //주간 혹은 야간 입장료 배열 저장
 			t.timestr = "주간";
 		} else {
 			t.price_time = Options.price_night;
@@ -20,7 +20,7 @@ public class ProcessingClass {
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
 		int now_year = Integer.parseInt(sdf.format(calendar.getTime()));
-		
+		//우선 생년월일을 YYYYMMdd로 입력받아 사용한다
 		int birth_year = Integer.parseInt(t.minbun.substring(0, 4));
 		t.age = now_year - birth_year;
 		

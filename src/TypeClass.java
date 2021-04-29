@@ -12,7 +12,7 @@ public class TypeClass {
 	String discntstr;
 	
 	//price
-	int[] price_time;
+	int[] price_time; //주간, 야간 여부에 따라 가격을 저장할 배열
 	double disrate;
 	int price_age;
 	

@@ -9,15 +9,15 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Report {
-
+	//report파일을 읽고 옵션에 따라 저장하는 클래스
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
 		
 		File file = new File ("c:\\Users\\J\\Desktop\\source\\report\\report.csv");
 		BufferedReader br = new BufferedReader (new FileReader(file));
-		String str;
 		
+		String str; //우선 선언
 		ReportOptions ReOptions;
 		ReportType ReType;
 		ReportFileWrite ReFileWrite;
@@ -36,17 +36,17 @@ public class Report {
 					ReFileWrite = new ReportFileWrite(filename);
 					ReOptions = new ReportOptions();
 					ReType = new ReportType();
-					String datestr = "";
-					int datetotal = 0;
+					String datestr = ""; //우선 선언함
+					int datetotal = 0; 
 					ArrayList<String> priceList = new ArrayList<String>();
 					ArrayList <String> dateArrList1 = new ArrayList <String>(); //get dates
 					while((str = br.readLine()) != null) {
 						String[] field = str.split(",");
-						dateArrList1.add(field[0]);
-						priceList.add(field[4]);
+						dateArrList1.add(field[0]); //일자 저장
+						priceList.add(field[4]); //금액 저장
 					}
 					HashSet<String> dateList = new HashSet<String>(dateArrList1); //hashset of dateArrlist1
-					ArrayList <String> dateArrList2 = new ArrayList <String>(dateList); //get dates through a hashset
+					ArrayList <String> dateArrList2 = new ArrayList <String>(dateList); //get dates through a hashset 중복 제거
 					dateArrList2.sort(null); //sort (date, date, ..., txt)
 					
 					//System.out.println(dateArrList1); //check up
@@ -61,13 +61,12 @@ public class Report {
 								dateArr[k+1][0] = dateArrList2.get(k);
 								datetotal += Integer.parseInt(priceList.get(j));
 							}
-						}dateArr[k+1][1] = Integer.toString(datetotal);
+						}
+						dateArr[k+1][1] = Integer.toString(datetotal);
 					}
-					
-					ReType.printArr(dateArr); //check up
-					
-					ReFileWrite.arrWrite(dateArr);
-					ReFileWrite.fileClose();
+						ReType.printArr(dateArr); //check up
+						ReFileWrite.arrWrite(dateArr);
+						ReFileWrite.fileClose();
 					} catch(NoSuchElementException e) {
 						e.printStackTrace();
 					} catch(NumberFormatException e) {
@@ -84,9 +83,8 @@ public class Report {
 					String[] field = str.split(",");
 					ReType.TypeDay(dayArr, field, ReOptions, ReFileWrite);
 				}
-				
-				dayArr[dayArr.length-2][1] = Integer.toString(ReOptions.daysum); 
-				dayArr[dayArr.length-2][2] = Integer.toString(ReOptions.nightsum);
+				dayArr[dayArr.length-2][1] = Integer.toString(ReOptions.daysum);  //주간 합계
+				dayArr[dayArr.length-2][2] = Integer.toString(ReOptions.nightsum); //야간 합계
 				
 				dayArr[dayArr.length-1][1] = Integer.toString(ReOptions.dayTotal);
 				dayArr[dayArr.length-1][2] = Integer.toString(ReOptions.nightTotal);
@@ -95,7 +93,6 @@ public class Report {
 				
 				ReFileWrite.arrWrite(dayArr);
 				ReFileWrite.fileClose();
-				
 			} else if (i == 3) {
 				String filename = "c:\\Users\\J\\Desktop\\source\\report\\우대별.csv";
 				ReFileWrite = new ReportFileWrite(filename);

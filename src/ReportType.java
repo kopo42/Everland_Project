@@ -112,7 +112,7 @@ public class ReportType {
 		switch(field[2]) {
 		case "성인":
 			adultcnt = Integer.parseInt(field[3]);
-			arr[1][n] = Integer.toString(adultcnt);
+			arr[1][n] = Integer.toString(adultcnt); //배열에 바로 저장
 			break;
 		case "청소년":
 			youthcnt += Integer.parseInt(field[3]);

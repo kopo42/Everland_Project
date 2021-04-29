@@ -12,11 +12,11 @@ public class FileWriteClass {
 	
 	public FileWriteClass() {
 		try {
-			File file = new File(Options.filename);
-			if(file.exists() == true) {
-				isFileExist = true;
+			File file = new File(Options.filename); //파일네임은 실행 시 받아온다
+			if(file.exists() == true) { //알아보기 쉽게 true, false 위치를 조정함
+				isFileExist = true; //파일의 존재 여부 = true
 			} else if(file.exists() == false){
-				isFileExist = false;
+				isFileExist = false; //파일의 존재 여부 = false
 			}
 			fw = new FileWriter(Options.filename, true);					
 		} catch (IOException e) {
@@ -26,7 +26,7 @@ public class FileWriteClass {
 	}
 	
 	public void headerWrite() throws IOException {
-		String head = "";
+		String head = ""; //미리 선언
 		if(isFileExist == false) {
 			head = "날짜," + "권종," + "연령구분," + "발매수," + "결제금액," + "우대사항"+"\n";
 			fw.write(head);
